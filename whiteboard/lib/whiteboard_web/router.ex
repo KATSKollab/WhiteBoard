@@ -14,6 +14,16 @@ defmodule WhiteboardWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api", WhiteboardWeb do
+    pipe_through :api
+
+    resources "/users", UserController, except: [:new, :edit]
+    resources "/boards", BoardController, except: [:new, :edit]
+    resources "/board_collaborators", BoardCollaboratorController, except: [:new, :edit]
+  end
+
+
+
   scope "/", WhiteboardWeb do
     pipe_through :browser
 
