@@ -28,6 +28,7 @@ defmodule WhiteboardWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/board", PageController, :board
   end
 
   # Other scopes may use custom stacks.
